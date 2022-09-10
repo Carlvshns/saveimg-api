@@ -1,4 +1,4 @@
-package dev.carlvs.photo.endpoint;
+package dev.carlvs.photo.aplication.adapters.controllers;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
