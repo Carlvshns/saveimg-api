@@ -1,4 +1,4 @@
-package dev.carlvs.photo.config;
+package dev.carlvs.photo.infrastructure.config;
 
 import java.util.Arrays;
 
