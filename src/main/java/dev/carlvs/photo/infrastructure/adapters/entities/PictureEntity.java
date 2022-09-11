@@ -19,7 +19,7 @@ public class PictureEntity implements AbstractEntity {
 
     public PictureEntity(Picture picture) {
         this.id = picture.geId();
-        this.pictureData = this.getPictureData();
+        this.pictureData = picture.getPictureData();
     }
 
     public PictureEntity(byte[] pictureData) {
