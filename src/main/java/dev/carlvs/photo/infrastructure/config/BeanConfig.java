@@ -11,7 +11,7 @@ import dev.carlvs.photo.domain.ports.repositories.PictureRepositoryPort;
 public class BeanConfig {
 
     @Bean
-    PictureServicePort produtoService(PictureRepositoryPort pictureRepositoryPort) {
+    PictureServicePort pictureService(PictureRepositoryPort pictureRepositoryPort) {
         return new PictureServiceImpl(pictureRepositoryPort);
     }
 }
