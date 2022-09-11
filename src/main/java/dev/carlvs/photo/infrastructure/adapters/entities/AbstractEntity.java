@@ -1,4 +1,4 @@
-package dev.carlvs.photo.domain;
+package dev.carlvs.photo.infrastructure.adapters.entities;
 
 import java.io.Serializable;
 import java.util.UUID;

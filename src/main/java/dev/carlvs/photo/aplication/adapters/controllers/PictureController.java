@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import dev.carlvs.photo.services.PictureService;
+import dev.carlvs.photo.domain.ports.interfaces.PictureServicePort;
 
 @RestController
 @RequestMapping(value = "/pictures")
 public class PictureController {
 
-    private PictureService pictureService;
+    private PictureServicePort pictureServicePort;
     
-    public PictureController(PictureService pictureService) {
-        this.pictureService = pictureService;
+    public PictureController(PictureServicePort pictureServicePort) {
+        this.pictureServicePort = pictureServicePort;
     }
 
     @PostMapping(path = "/upload")
     public ResponseEntity<String> save(@RequestParam(name = "image", required = true) MultipartFile image) {
 
-        return new ResponseEntity<>(pictureService.save(image), HttpStatus.CREATED);
+        return new ResponseEntity<>(pictureServicePort.save(image), HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/find")
@@ -33,6 +33,6 @@ public class PictureController {
         
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, 
                                         "attachment; filename=\"" + "picture" + "\"")
-                                        .body(pictureService.findById(pictureId));
+                                        .body(pictureServicePort.findById(pictureId));
     }
 }

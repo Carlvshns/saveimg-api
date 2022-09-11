@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
-import dev.carlvs.photo.domain.AbstractEntity;
+import dev.carlvs.photo.domain.Picture;
 
 @Entity(name = "tb_picture")
 public class PictureEntity implements AbstractEntity {
@@ -16,6 +16,11 @@ public class PictureEntity implements AbstractEntity {
 
     @Lob
     private byte[] pictureData;
+
+    public PictureEntity(Picture picture) {
+        this.id = picture.geId();
+        this.pictureData = this.getPictureData();
+    }
 
     public PictureEntity(byte[] pictureData) {
         this.pictureData = pictureData;
