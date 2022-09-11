@@ -1,4 +1,4 @@
-package dev.carlvs.photo.domain;
+package dev.carlvs.photo.infrastructure.adapters.entities;
 
 import java.util.UUID;
 
@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import dev.carlvs.photo.domain.AbstractEntity;
+
 @Entity(name = "tb_picture")
-public class Picture implements AbstractEntity {
+public class PictureEntity implements AbstractEntity {
 
     @Id
     private UUID id;
@@ -15,11 +17,11 @@ public class Picture implements AbstractEntity {
     @Lob
     private byte[] pictureData;
 
-    public Picture(byte[] pictureData) {
+    public PictureEntity(byte[] pictureData) {
         this.pictureData = pictureData;
     }
 
-    public Picture() {
+    public PictureEntity() {
     }
 
     @Override

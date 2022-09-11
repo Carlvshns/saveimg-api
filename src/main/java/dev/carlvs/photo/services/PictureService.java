@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import dev.carlvs.photo.domain.Picture;
-import dev.carlvs.photo.repositories.PictureRepository;
+import dev.carlvs.photo.infrastructure.adapters.entities.PictureEntity;
+import dev.carlvs.photo.infrastructure.adapters.repositories.SpringPictureRepository;
 
 @Service
 public class PictureService {
     
-    private PictureRepository pictureRepository;
+    private SpringPictureRepository pictureRepository;
 
-    public PictureService(PictureRepository pictureRepository) {
+    public PictureService(SpringPictureRepository pictureRepository) {
         this.pictureRepository = pictureRepository;
     }
 
@@ -23,7 +23,7 @@ public class PictureService {
 
         if(image.getContentType().contains("image")) {
 
-        Picture picture = new Picture();
+        PictureEntity picture = new PictureEntity();
 
         try {
 
@@ -36,7 +36,7 @@ public class PictureService {
 
         picture.setId(UUID.randomUUID());
 
-        Picture pictureSaved = this.pictureRepository.save(picture);
+        PictureEntity pictureSaved = this.pictureRepository.save(picture);
 
         return "Copy this URL to access your picture: "+ServletUriComponentsBuilder
                                                         .fromCurrentContextPath().toUriString()
