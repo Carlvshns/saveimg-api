@@ -34,14 +34,14 @@ public class PictureServiceImpl implements PictureServicePort {
                 e.printStackTrace();
             }
 
-                if (picture.geId() == null ) {   picture.setId(UUID.randomUUID());   }
+                if (picture.getId() == null ) {   picture.setId(UUID.randomUUID());   }
 
             Picture pictureSaved = this.pictureRepositoryPort.save(picture);
 
             return "Copy this URL to access your picture: "+ServletUriComponentsBuilder
                                                             .fromCurrentContextPath().toUriString()
                                                             +"/pictures/find?pictureId="
-                                                            +pictureSaved.geId().toString();
+                                                            +pictureSaved.getId().toString();
         } else {
 
             return "This not a image";

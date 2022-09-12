@@ -11,7 +11,7 @@ public class Picture {
     private byte[] pictureData;
 
     public Picture(PictureEntity pictureEntity) {
-        this.id = pictureEntity.geId();
+        this.id = pictureEntity.getId();
         this.pictureData = pictureEntity.getPictureData();
     }
 
@@ -22,7 +22,7 @@ public class Picture {
     public Picture() {
     }
 
-    public UUID geId() {
+    public UUID getId() {
         return this.id;
     }
     public void setId(UUID id) {

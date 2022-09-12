@@ -18,7 +18,7 @@ public class PictureEntity implements AbstractEntity {
     private byte[] pictureData;
 
     public PictureEntity(Picture picture) {
-        this.id = picture.geId();
+        this.id = picture.getId();
         this.pictureData = picture.getPictureData();
     }
 
@@ -30,7 +30,7 @@ public class PictureEntity implements AbstractEntity {
     }
 
     @Override
-    public UUID geId() {
+    public UUID getId() {
         return this.id;
     }
     public void setId(UUID id) {

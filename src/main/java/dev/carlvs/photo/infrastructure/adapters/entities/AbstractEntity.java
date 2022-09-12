@@ -5,5 +5,5 @@ import java.util.UUID;
 
 public interface AbstractEntity extends Serializable {
 
-    UUID geId();
+    UUID getId();
 }
