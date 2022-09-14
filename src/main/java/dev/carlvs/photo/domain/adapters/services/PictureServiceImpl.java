@@ -34,7 +34,7 @@ public class PictureServiceImpl implements PictureServicePort {
                 e.printStackTrace();
             }
 
-                if (picture.getId() == null ) {   picture.setId(UUID.randomUUID());   }
+            idIsNullable(picture);
 
             Picture pictureSaved = this.pictureRepositoryPort.save(picture);
 
@@ -45,6 +45,15 @@ public class PictureServiceImpl implements PictureServicePort {
         } else {
 
             return "This not a image";
+        }
+    }
+
+    public void idIsNullable(Picture picture) {
+
+        if (picture.getId() == null ) {   
+            
+            picture.setId(UUID.randomUUID()); 
+
         }
     }
 
